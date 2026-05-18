@@ -15,7 +15,7 @@ export default function Home() {
   const [introComplete, setIntroComplete] = useState(false)
 
   return (
-    <main className="relative">
+    <main className="relative overflow-x-hidden">
       <Intro onComplete={() => setIntroComplete(true)} />
       <Navbar />
       <Hero />

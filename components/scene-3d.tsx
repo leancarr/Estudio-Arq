@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, Suspense } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Environment, Float, useProgress, Html } from '@react-three/drei'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -24,6 +24,9 @@ function Loader() {
 // Plaster-textured abstract architectural model
 function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } }) {
   const meshRef = useRef<THREE.Group>(null)
+  const { viewport } = useThree()
+  // Adjust base scale dynamically based on viewport width
+  const isMobile = viewport.width < 5
 
   useFrame(() => {
     if (meshRef.current) {
@@ -31,8 +34,9 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
       meshRef.current.rotation.y = scrollProgress.value * Math.PI * 0.5
       meshRef.current.rotation.x = Math.sin(scrollProgress.value * Math.PI) * 0.1
       
-      // Scale effect
-      const scale = 1 + scrollProgress.value * 0.15
+      // Scale effect combining mobile responsiveness and scroll progress
+      const baseScale = isMobile ? 0.6 : 1
+      const scale = baseScale + scrollProgress.value * 0.15
       meshRef.current.scale.setScalar(scale)
     }
   })

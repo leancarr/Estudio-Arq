@@ -8,6 +8,7 @@ interface NavbarProps {
 
 export function Navbar({ className }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const navRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -20,8 +21,9 @@ export function Navbar({ className }: NavbarProps) {
   }, [])
 
   return (
-    <nav
-      ref={navRef}
+    <>
+      <nav
+        ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
           ? 'bg-background/90 backdrop-blur-md border-b border-border' 
@@ -45,15 +47,33 @@ export function Navbar({ className }: NavbarProps) {
             <NavLink href="#contacto" isScrolled={isScrolled}>Contacto</NavLink>
           </div>
 
-          {/* Mobile Menu Indicator */}
-          <div className="md:hidden">
-            <span className={`text-xs tracking-[0.2em] uppercase ${isScrolled ? 'text-foreground/50' : 'text-primary-foreground/60'}`}>
-              Menú
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden relative z-[60]"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <span className={`text-xs tracking-[0.2em] uppercase transition-colors ${
+              isMenuOpen ? 'text-foreground' : (isScrolled ? 'text-foreground/50' : 'text-primary-foreground/60')
+            }`}>
+              {isMenuOpen ? 'Cerrar' : 'Menú'}
             </span>
-          </div>
+          </button>
         </div>
       </div>
-    </nav>
+
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`fixed inset-0 bg-background/98 backdrop-blur-md z-[40] transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-10 ${
+          isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <MobileNavLink href="#obras" onClick={() => setIsMenuOpen(false)}>Obras</MobileNavLink>
+        <MobileNavLink href="#estudio" onClick={() => setIsMenuOpen(false)}>Estudio</MobileNavLink>
+        <MobileNavLink href="#contacto" onClick={() => setIsMenuOpen(false)}>Contacto</MobileNavLink>
+      </div>
+    </>
   )
 }
 
@@ -65,6 +85,18 @@ function NavLink({ href, children, isScrolled }: { href: string; children: React
     >
       {children}
       <span className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full ${isScrolled ? 'bg-foreground' : 'bg-primary-foreground'}`} />
+    </a>
+  )
+}
+
+function MobileNavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick: () => void }) {
+  return (
+    <a
+      href={href}
+      onClick={onClick}
+      className="text-foreground text-3xl font-light tracking-[0.2em] uppercase hover:text-foreground/50 transition-colors duration-300"
+    >
+      {children}
     </a>
   )
 }
