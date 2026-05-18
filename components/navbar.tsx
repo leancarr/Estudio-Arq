@@ -33,21 +33,21 @@ export function Navbar({ className }: NavbarProps) {
           {/* Logo */}
           <a 
             href="/" 
-            className="text-foreground font-light tracking-[0.3em] text-sm uppercase"
+            className={`${isScrolled ? 'text-foreground/60 hover:text-foreground' : 'text-primary-foreground/80 hover:text-primary-foreground'} font-light tracking-[0.3em] text-sm uppercase transition-colors`}
           >
-            Estudio 87
+            LAMBDA
           </a>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-12">
-            <NavLink href="#obras">Obras</NavLink>
-            <NavLink href="#estudio">Estudio</NavLink>
-            <NavLink href="#contacto">Contacto</NavLink>
+            <NavLink href="#obras" isScrolled={isScrolled}>Obras</NavLink>
+            <NavLink href="#estudio" isScrolled={isScrolled}>Estudio</NavLink>
+            <NavLink href="#contacto" isScrolled={isScrolled}>Contacto</NavLink>
           </div>
 
           {/* Mobile Menu Indicator */}
           <div className="md:hidden">
-            <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
+            <span className={`text-xs tracking-[0.2em] uppercase ${isScrolled ? 'text-foreground/50' : 'text-primary-foreground/60'}`}>
               Menú
             </span>
           </div>
@@ -57,14 +57,14 @@ export function Navbar({ className }: NavbarProps) {
   )
 }
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({ href, children, isScrolled }: { href: string; children: React.ReactNode; isScrolled: boolean }) {
   return (
     <a
       href={href}
-      className="text-muted-foreground hover:text-foreground text-xs tracking-[0.2em] uppercase transition-colors duration-300 relative group"
+      className={`${isScrolled ? 'text-foreground/40 hover:text-foreground' : 'text-primary-foreground/60 hover:text-primary-foreground'} text-xs tracking-[0.2em] uppercase transition-colors duration-300 relative group`}
     >
       {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover:w-full" />
+      <span className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full ${isScrolled ? 'bg-foreground' : 'bg-primary-foreground'}`} />
     </a>
   )
 }

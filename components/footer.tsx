@@ -1,6 +1,7 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -10,6 +11,18 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 export function Footer() {
   const containerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' })
+
+  // Auto-scroll logic for carousel
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    const autoScroll = setInterval(scrollNext, 3000)
+    return () => clearInterval(autoScroll)
+  }, [emblaApi, scrollNext])
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
@@ -44,6 +57,30 @@ export function Footer() {
         ref={contentRef}
         className="max-w-[1800px] mx-auto px-6 md:px-12"
       >
+        {/* Brands / Partners Carousel */}
+        <div className="mb-24 md:mb-32 border-b border-primary-foreground/10 pb-16 md:pb-24">
+          <span className="text-xs tracking-[0.3em] text-primary-foreground/50 uppercase block mb-12 text-center md:text-left">
+            Trusted Partners
+          </span>
+          
+          {/* Embla Carousel */}
+          <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
+            <div className="flex touch-pan-y">
+              {[
+                { name: "VITRA", class: "font-serif text-xl md:text-2xl tracking-[0.2em]" },
+                { name: "KNOLL", class: "font-sans text-lg md:text-xl tracking-[0.3em] font-bold" },
+                { name: "Flos", class: "font-serif text-2xl md:text-3xl italic tracking-wider" },
+                { name: "ARTEMIDE", class: "font-mono text-lg md:text-xl tracking-[0.15em]" },
+                { name: "CASSINA", class: "font-sans text-xl md:text-2xl font-light tracking-[0.25em]" }
+              ].map((brand, i) => (
+                <div key={i} className="flex-[0_0_50%] md:flex-[0_0_25%] min-w-0 flex justify-center items-center opacity-50 grayscale hover:opacity-100 transition-opacity duration-500">
+                  <span className={brand.class}>{brand.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Main Content */}
         <div className="grid md:grid-cols-2 gap-16 md:gap-24">
           {/* Left Column */}
@@ -99,7 +136,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-24 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="text-xs text-primary-foreground/40">
-            © 2024 Estudio 87. Todos los derechos reservados.
+            © 2024 LAMBDA. Todos los derechos reservados.
           </p>
           <p className="text-xs text-primary-foreground/40">
             Arquitectura que trasciende

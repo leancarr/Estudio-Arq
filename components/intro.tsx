@@ -49,9 +49,8 @@ export function Intro({ onComplete }: { onComplete?: () => void }) {
     gsap.set('.intro-line', { 
       scaleX: 0 
     })
-    gsap.set('.scroll-hint', { 
-      opacity: 0, 
-      y: 20 
+    gsap.set('.intro-line', { 
+      scaleX: 0 
     })
 
     // Animation sequence
@@ -74,12 +73,6 @@ export function Intro({ onComplete }: { onComplete?: () => void }) {
       stagger: 0.1,
       ease: 'power3.out',
     }, '-=0.4')
-    .to('.scroll-hint', {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: 'power2.out',
-    }, '-=0.2')
     .to({}, { duration: 2 }) // Pause before exit
 
   }, { scope: containerRef, dependencies: [isReady] })
@@ -124,8 +117,8 @@ export function Intro({ onComplete }: { onComplete?: () => void }) {
       {/* Content */}
       <div className="relative z-10 text-center px-6">
         {/* Lambda logo text */}
-        <div className="overflow-hidden mb-6">
-          <h1 className="font-serif text-[15vw] md:text-[12vw] lg:text-[10vw] font-light tracking-[0.2em] text-secondary leading-none flex justify-center">
+        <div className="overflow-hidden mb-6 w-full max-w-[100vw]">
+          <h1 className="font-serif text-[clamp(3rem,13vw,10rem)] md:text-[12vw] lg:text-[10vw] font-light tracking-[0.05em] md:tracking-[0.2em] text-secondary leading-none flex justify-center flex-wrap md:flex-nowrap">
             {lambdaLetters.map((letter, i) => (
               <span
                 key={i}
@@ -156,13 +149,7 @@ export function Intro({ onComplete }: { onComplete?: () => void }) {
           </p>
         </div>
 
-        {/* Scroll hint */}
-        <div className="scroll-hint absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3" style={{ opacity: 0 }}>
-          <span className="text-[10px] tracking-[0.3em] text-cement/60 uppercase">Entrar</span>
-          <div className="w-px h-8 bg-cement/20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-cement/60 animate-scroll-line" />
-          </div>
-        </div>
+
       </div>
 
       {/* Corner marks */}
