@@ -8,16 +8,16 @@ export default function NotFound() {
           Error 404
         </span>
         <h1 className="text-4xl md:text-5xl font-extralight tracking-tight text-foreground">
-          Proyecto no encontrado
+          Project not found
         </h1>
         <p className="text-muted-foreground font-light max-w-md mx-auto">
-          El proyecto que buscas no existe o ha sido movido.
+          The project you are looking for does not exist or has been moved.
         </p>
         <Link
           href="/"
           className="inline-block text-xs tracking-[0.2em] text-foreground uppercase px-8 py-4 border border-border hover:bg-foreground hover:text-primary-foreground transition-colors duration-300"
         >
-          Volver al Inicio
+          Back to Home
         </Link>
       </div>
     </main>

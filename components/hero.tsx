@@ -12,20 +12,20 @@ const heroSlides = [
   {
     src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90',
     alt: 'Concrete architecture with minimal design',
-    title: 'Espacios que respiran pureza',
-    subtitle: 'Casa Monolito',
+    title: 'Spaces that breathe purity',
+    subtitle: 'Monolith House',
   },
   {
     src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=90',
     alt: 'Brutalist interior space',
-    title: 'Donde la luz encuentra forma',
-    subtitle: 'Residencia Umbra',
+    title: 'Where light finds form',
+    subtitle: 'Umbra Residence',
   },
   {
     src: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=90',
     alt: 'Minimal architecture detail',
-    title: 'Silencio construido',
-    subtitle: 'Pabellón Austero',
+    title: 'Built silence',
+    subtitle: 'Austere Pavilion',
   },
 ]
 
@@ -182,7 +182,7 @@ export function Hero() {
             ref={taglineRef}
             className="block text-[10px] md:text-xs tracking-[0.4em] text-cement uppercase font-light"
           >
-            Arquitectura Esencial
+            Essential Architecture
           </span>
           
           <span 
@@ -203,7 +203,7 @@ export function Hero() {
             ref={descRef}
             className="text-cement text-sm md:text-base max-w-lg font-light leading-relaxed pt-4"
           >
-            Diseñamos arquitectura donde cada línea tiene propósito y cada vacío cuenta una historia de luz y materia.
+            We design architecture where every line has a purpose and every void tells a story of light and matter.
           </p>
         </div>
 
@@ -234,7 +234,7 @@ export function Hero() {
         {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
           <span className="text-[9px] tracking-[0.4em] text-cement/60 uppercase">
-            Explorar
+            Explore
           </span>
           <div className="w-px h-10 overflow-hidden">
             <div className="w-full h-full bg-gradient-to-b from-cement to-transparent animate-scroll-line" />

@@ -6,6 +6,7 @@ import { Environment, Float, useProgress, Html } from '@react-three/drei'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
+// @ts-ignore
 import * as THREE from 'three'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
@@ -28,14 +29,15 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
   // Adjust base scale dynamically based on viewport width
   const isMobile = viewport.width < 5
 
-  useFrame(() => {
+  useFrame((state) => {
     if (meshRef.current) {
-      // Subtle rotation based on scroll progress
-      meshRef.current.rotation.y = scrollProgress.value * Math.PI * 0.5
-      meshRef.current.rotation.x = Math.sin(scrollProgress.value * Math.PI) * 0.1
+      const time = state.clock.getElapsedTime()
+      // Automatic continuous rotation + scroll rotation
+      meshRef.current.rotation.y = time * 0.15 + scrollProgress.value * Math.PI * 0.5
+      meshRef.current.rotation.x = Math.sin(time * 0.08 + scrollProgress.value * Math.PI) * 0.1
       
       // Scale effect combining mobile responsiveness and scroll progress
-      const baseScale = isMobile ? 0.6 : 1
+      const baseScale = isMobile ? 0.65 : 1
       const scale = baseScale + scrollProgress.value * 0.15
       meshRef.current.scale.setScalar(scale)
     }
@@ -47,14 +49,17 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
       rotationIntensity={0.2}
       floatIntensity={0.3}
     >
-      <group ref={meshRef}>
+      <group 
+        ref={meshRef}
+        position={[0, isMobile ? -0.6 : -0.2, 0]}
+      >
         {/* Main architectural form - abstract building */}
         <mesh position={[0, 0, 0]} castShadow receiveShadow>
           <boxGeometry args={[1.5, 2.5, 1]} />
           <meshStandardMaterial 
-            color="#f5f5f5"
-            roughness={0.95}
-            metalness={0}
+            color="#4d4d4d"
+            roughness={0.9}
+            metalness={0.1}
           />
         </mesh>
         
@@ -62,9 +67,9 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
         <mesh position={[0.9, -0.3, 0.3]} castShadow receiveShadow>
           <boxGeometry args={[0.8, 1.8, 0.8]} />
           <meshStandardMaterial 
-            color="#ececec"
-            roughness={0.92}
-            metalness={0}
+            color="#5a5a5a"
+            roughness={0.88}
+            metalness={0.1}
           />
         </mesh>
         
@@ -72,9 +77,9 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
         <mesh position={[-0.2, 0.6, 0.51]} castShadow receiveShadow>
           <boxGeometry args={[0.4, 0.6, 0.1]} />
           <meshStandardMaterial 
-            color="#e0e0e0"
-            roughness={0.9}
-            metalness={0}
+            color="#333333"
+            roughness={0.85}
+            metalness={0.1}
           />
         </mesh>
         
@@ -82,9 +87,9 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
         <mesh position={[0.3, -1.5, 0]} receiveShadow>
           <boxGeometry args={[3, 0.15, 2]} />
           <meshStandardMaterial 
-            color="#fafafa"
-            roughness={0.98}
-            metalness={0}
+            color="#666666"
+            roughness={0.92}
+            metalness={0.1}
           />
         </mesh>
         
@@ -92,9 +97,9 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
         <mesh position={[-0.6, -0.8, 0.6]} castShadow receiveShadow>
           <boxGeometry args={[0.3, 0.8, 0.3]} />
           <meshStandardMaterial 
-            color="#f0f0f0"
-            roughness={0.93}
-            metalness={0}
+            color="#505050"
+            roughness={0.88}
+            metalness={0.1}
           />
         </mesh>
       </group>
@@ -144,27 +149,28 @@ export function Scene3D() {
 
   return (
     <section 
+      id="modelo-3d"
       ref={containerRef}
-      className="relative h-[120vh] w-full bg-secondary flex items-center justify-center"
+      className="relative h-[100vh] lg:h-[120vh] w-full bg-secondary flex items-start lg:items-center justify-start px-6 md:px-12 py-24 lg:py-0"
     >
       {/* Text overlay */}
-      <div className="absolute z-10 max-w-[1800px] w-full px-6 md:px-12 pointer-events-none">
+      <div className="z-10 max-w-[1800px] w-full pointer-events-none">
         <div className="max-w-md">
           <span className="block text-xs tracking-[0.3em] text-muted-foreground uppercase mb-4">
-            Proceso
+            Process
           </span>
           <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-foreground leading-tight text-balance">
-            Del concepto a la materia
+            From concept to matter
           </h2>
           <p className="mt-4 text-muted-foreground text-sm font-light leading-relaxed">
-            Cada proyecto nace como una maqueta de yeso, donde probamos la luz, 
-            las proporciones y el vacío antes de dar vida al hormigón.
+            Every project is born as a plaster maquette, where we test light, 
+            proportions, and voids before bringing the concrete to life.
           </p>
         </div>
       </div>
 
       {/* 3D Canvas */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 lg:left-[25%]">
         <Canvas
           shadows
           camera={{ position: [4, 2, 5], fov: 35 }}
@@ -177,7 +183,7 @@ export function Scene3D() {
       </div>
 
       {/* Gradient overlays for blending */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-secondary to-transparent pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   )

@@ -9,8 +9,8 @@ const geist = Geist({
 })
 
 export const metadata: Metadata = {
-  title: 'Estudio 87 | Arquitectura Minimalista',
-  description: 'Estudio de arquitectura minimalista especializado en diseño puro y espacios que respiran.',
+  title: 'Studio 87 | Minimalist Architecture',
+  description: 'Minimalist architecture studio specialized in pure design and spaces that breathe.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${geist.variable} bg-background`}>
+    <html lang="en" className={`${geist.variable} bg-background`}>
       <body className="font-sans antialiased overflow-x-hidden">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

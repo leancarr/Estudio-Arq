@@ -41,21 +41,25 @@ export function Navbar({ className }: NavbarProps) {
           </a>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center gap-12">
-            <NavLink href="#obras" isScrolled={isScrolled}>Obras</NavLink>
-            <NavLink href="#estudio" isScrolled={isScrolled}>Estudio</NavLink>
-            <NavLink href="#contacto" isScrolled={isScrolled}>Contacto</NavLink>
+          <div className="hidden lg:flex items-center gap-6 xl:gap-10">
+            <NavLink href="#modelo-3d" isScrolled={isScrolled}>Model</NavLink>
+            <NavLink href="#manifiesto" isScrolled={isScrolled}>Manifesto</NavLink>
+            <NavLink href="#que-hacemos" isScrolled={isScrolled}>Services</NavLink>
+            <NavLink href="#obras" isScrolled={isScrolled}>Works</NavLink>
+            <NavLink href="#quienes-somos" isScrolled={isScrolled}>Studio</NavLink>
+            <NavLink href="#opiniones" isScrolled={isScrolled}>Reviews</NavLink>
+            <NavLink href="#contacto" isScrolled={isScrolled}>Contact</NavLink>
           </div>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden relative z-[60]"
+            className="lg:hidden relative z-[60]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <span className={`text-xs tracking-[0.2em] uppercase transition-colors ${
               isMenuOpen ? 'text-foreground' : (isScrolled ? 'text-foreground/50' : 'text-primary-foreground/60')
             }`}>
-              {isMenuOpen ? 'Cerrar' : 'Menú'}
+              {isMenuOpen ? 'Close' : 'Menu'}
             </span>
           </button>
         </div>
@@ -65,13 +69,17 @@ export function Navbar({ className }: NavbarProps) {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`fixed inset-0 bg-background/98 backdrop-blur-md z-[40] transition-all duration-500 md:hidden flex flex-col items-center justify-center gap-10 ${
+        className={`fixed inset-0 bg-background/98 backdrop-blur-md z-[40] transition-all duration-500 lg:hidden flex flex-col items-center justify-center gap-6 ${
           isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <MobileNavLink href="#obras" onClick={() => setIsMenuOpen(false)}>Obras</MobileNavLink>
-        <MobileNavLink href="#estudio" onClick={() => setIsMenuOpen(false)}>Estudio</MobileNavLink>
-        <MobileNavLink href="#contacto" onClick={() => setIsMenuOpen(false)}>Contacto</MobileNavLink>
+        <MobileNavLink href="#modelo-3d" onClick={() => setIsMenuOpen(false)}>Model</MobileNavLink>
+        <MobileNavLink href="#manifiesto" onClick={() => setIsMenuOpen(false)}>Manifesto</MobileNavLink>
+        <MobileNavLink href="#que-hacemos" onClick={() => setIsMenuOpen(false)}>Services</MobileNavLink>
+        <MobileNavLink href="#obras" onClick={() => setIsMenuOpen(false)}>Works</MobileNavLink>
+        <MobileNavLink href="#quienes-somos" onClick={() => setIsMenuOpen(false)}>Studio</MobileNavLink>
+        <MobileNavLink href="#opiniones" onClick={() => setIsMenuOpen(false)}>Reviews</MobileNavLink>
+        <MobileNavLink href="#contacto" onClick={() => setIsMenuOpen(false)}>Contact</MobileNavLink>
       </div>
     </>
   )

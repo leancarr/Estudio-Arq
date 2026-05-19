@@ -87,10 +87,10 @@ export function Footer() {
           <div className="space-y-8">
             <div>
               <span className="text-xs tracking-[0.3em] text-primary-foreground/50 uppercase">
-                Contacto
+                Contact
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl font-extralight tracking-tight text-balance">
-                Hablemos de tu próximo proyecto
+                Let's discuss your next project
               </h2>
             </div>
             
@@ -111,7 +111,7 @@ export function Footer() {
           <div className="space-y-8">
             <div id="estudio">
               <span className="text-xs tracking-[0.3em] text-primary-foreground/50 uppercase">
-                Estudio
+                Studio
               </span>
               <address className="mt-4 text-sm text-primary-foreground/70 not-italic leading-relaxed">
                 Av. del Libertador 4850<br />
@@ -136,10 +136,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-24 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="text-xs text-primary-foreground/40">
-            © 2024 LAMBDA. Todos los derechos reservados.
+            © 2024 LAMBDA. All rights reserved.
           </p>
           <p className="text-xs text-primary-foreground/40">
-            Arquitectura que trasciende
+            Architecture that transcends
           </p>
         </div>
       </div>

@@ -12,35 +12,35 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 const projects = [
   {
     id: 'casa-monolito',
-    title: 'Casa Monolito',
+    title: 'Monolith House',
     year: '2024',
     location: 'Buenos Aires',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=90',
   },
   {
     id: 'refugio-andino',
-    title: 'Refugio Andino',
+    title: 'Andean Refuge',
     year: '2023',
     location: 'Bariloche',
     image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=90',
   },
   {
     id: 'torre-silencio',
-    title: 'Torre del Silencio',
+    title: 'Tower of Silence',
     year: '2023',
     location: 'Montevideo',
     image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1600&q=90',
   },
   {
     id: 'galeria-luz',
-    title: 'Galería de Luz',
+    title: 'Gallery of Light',
     year: '2022',
     location: 'Santiago',
     image: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1600&q=90',
   },
   {
     id: 'casa-horizonte',
-    title: 'Casa Horizonte',
+    title: 'Horizon House',
     year: '2022',
     location: 'Punta del Este',
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=90',
@@ -97,24 +97,12 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       },
       '-=0.8'
     )
-
-    // Parallax effect on scroll
-    gsap.to(imageRef.current.querySelector('img'), {
-      yPercent: 20,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: cardRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1,
-      },
-    })
   }, { scope: cardRef })
 
   return (
     <div
       ref={cardRef}
-      className="project-card relative min-h-screen flex items-center py-16 md:py-24"
+      className="project-card relative min-h-0 lg:min-h-[75vh] flex items-center py-16 md:py-24 lg:py-12"
     >
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -157,7 +145,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                   }`}
                 >
                   <span className="text-xs tracking-[0.3em] text-white uppercase px-6 py-3 border border-white/40 backdrop-blur-sm">
-                    Ver Proyecto
+                    View Project
                   </span>
                 </div>
               </div>
@@ -185,11 +173,11 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             {/* Details */}
             <div className={`animate-in flex gap-8 text-sm text-muted-foreground ${index % 2 === 1 ? 'lg:justify-end' : ''}`}>
               <div>
-                <span className="text-xs tracking-[0.2em] uppercase block mb-1">Ubicacion</span>
+                <span className="text-xs tracking-[0.2em] uppercase block mb-1">Location</span>
                 <span className="font-light">{project.location}</span>
               </div>
               <div>
-                <span className="text-xs tracking-[0.2em] uppercase block mb-1">Ano</span>
+                <span className="text-xs tracking-[0.2em] uppercase block mb-1">Year</span>
                 <span className="font-light">{project.year}</span>
               </div>
             </div>
@@ -242,18 +230,18 @@ export function SnapGallery() {
               Portfolio
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight">
-              Obras Seleccionadas
+              Selected Works
             </h2>
           </div>
           <span className="hidden md:block text-xs tracking-[0.2em] text-muted-foreground font-mono">
-            {String(projects.length).padStart(2, '0')} Proyectos
+            {String(projects.length).padStart(2, '0')} Projects
           </span>
         </div>
         <div className="w-full h-px bg-muted-foreground/20 mt-8" />
       </div>
 
       {/* Vertical Gallery */}
-      <div className="space-y-16 md:space-y-24">
+      <div className="space-y-16 md:space-y-24 lg:space-y-12">
         {projects.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
         ))}

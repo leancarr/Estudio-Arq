@@ -27,15 +27,15 @@ export function TransitionLink({
   const handleClick = useCallback(async (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     
-    // Check if View Transitions API is available
-    if (typeof document !== 'undefined' && 'startViewTransition' in document) {
+    const hasViewTransition = typeof document !== 'undefined' && 'startViewTransition' in document
+    if (hasViewTransition) {
       // Use native View Transitions API
       (document as Document & { startViewTransition: (callback: () => void) => void }).startViewTransition(() => {
         window.location.href = href
       })
     } else {
       // Fallback: GSAP exit animation
-      const main = document.querySelector('main')
+      const main = typeof document !== 'undefined' ? document.querySelector('main') : null
       if (main) {
         await gsap.to(main, {
           opacity: 0,

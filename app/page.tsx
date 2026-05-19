@@ -9,6 +9,9 @@ import { Footer } from '@/components/footer'
 import { Intro } from '@/components/intro'
 import { Pitch } from '@/components/pitch'
 import { WhatWeBelieve } from '@/components/what-we-believe'
+import { WhatWeDo } from '@/components/what-we-do'
+import { WhoWeAre } from '@/components/who-we-are'
+import { Reviews } from '@/components/reviews'
 import { ContactForm } from '@/components/contact-form'
 
 export default function Home() {
@@ -22,7 +25,10 @@ export default function Home() {
       <Pitch />
       <Scene3D />
       <WhatWeBelieve />
+      <WhatWeDo />
       <SnapGallery />
+      <WhoWeAre />
+      <Reviews />
       <ContactForm />
       <Footer />
     </main>

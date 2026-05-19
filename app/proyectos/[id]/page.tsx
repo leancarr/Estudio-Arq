@@ -5,23 +5,23 @@ import { notFound } from 'next/navigation'
 const projects = [
   {
     id: 'casa-monolito',
-    title: 'Casa Monolito',
+    title: 'Monolith House',
     year: '2024',
     location: 'Buenos Aires, Argentina',
     area: '450 m²',
-    description: 'Una residencia que emerge del paisaje como una escultura de hormigón. La pureza de sus líneas dialoga con la naturaleza circundante, creando espacios de contemplación donde la luz es la protagonista.',
+    description: 'A residence that emerges from the landscape like a concrete sculpture. The purity of its lines dialogues with the surrounding nature, creating spaces of contemplation where light is the protagonist.',
     images: [
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90',
-      'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1920&q=90',
+      'https://images.unsplash.com/photo-160073472592-401b489a3cdc?w=1920&q=90',
     ],
   },
   {
     id: 'refugio-andino',
-    title: 'Refugio Andino',
+    title: 'Andean Refuge',
     year: '2023',
     location: 'Bariloche, Argentina',
     area: '280 m²',
-    description: 'Enclavado en la cordillera, este refugio reinterpreta la arquitectura alpina tradicional con un lenguaje contemporáneo. Grandes ventanales enmarcan las montañas como cuadros vivientes.',
+    description: 'Nestled in the mountain range, this refuge reinterprets traditional alpine architecture with a contemporary language. Large windows frame the mountains as living paintings.',
     images: [
       'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=90',
       'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=90',
@@ -29,11 +29,11 @@ const projects = [
   },
   {
     id: 'torre-silencio',
-    title: 'Torre del Silencio',
+    title: 'Tower of Silence',
     year: '2023',
     location: 'Montevideo, Uruguay',
     area: '1200 m²',
-    description: 'Un edificio de oficinas que desafía la tipología convencional. Sus fachadas de hormigón visto filtran la luz creando atmósferas cambiantes a lo largo del día.',
+    description: 'An office building that challenges the conventional typology. Its exposed concrete facades filter light, creating changing atmospheres throughout the day.',
     images: [
       'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=90',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90',
@@ -41,11 +41,11 @@ const projects = [
   },
   {
     id: 'galeria-luz',
-    title: 'Galería de Luz',
+    title: 'Gallery of Light',
     year: '2022',
     location: 'Santiago, Chile',
     area: '800 m²',
-    description: 'Un espacio expositivo donde la arquitectura se subordina al arte. Muros blancos y techos de doble altura crean el lienzo perfecto para cualquier manifestación artística.',
+    description: 'An exhibition space where architecture is subordinated to art. White walls and double-height ceilings create the perfect canvas for any artistic manifestation.',
     images: [
       'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1920&q=90',
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=90',
@@ -53,11 +53,11 @@ const projects = [
   },
   {
     id: 'casa-horizonte',
-    title: 'Casa Horizonte',
+    title: 'Horizon House',
     year: '2022',
     location: 'Punta del Este, Uruguay',
     area: '520 m²',
-    description: 'Una vivienda que se extiende horizontalmente hacia el océano. La arquitectura se disuelve en el paisaje, difuminando los límites entre interior y exterior.',
+    description: 'A dwelling that extends horizontally towards the ocean. The architecture dissolves into the landscape, blurring the boundaries between interior and exterior.',
     images: [
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=90',
       'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=90',
@@ -76,11 +76,11 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const project = projects.find((p) => p.id === id)
   
   if (!project) {
-    return { title: 'Proyecto no encontrado' }
+    return { title: 'Project not found' }
   }
 
   return {
-    title: `${project.title} | Estudio 87`,
+    title: `${project.title} | Studio 87`,
     description: project.description,
   }
 }
@@ -108,7 +108,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               className="text-xs tracking-[0.2em] text-muted-foreground hover:text-foreground uppercase transition-colors duration-300 flex items-center gap-3"
             >
               <span className="w-8 h-px bg-current" />
-              Volver
+              Back
             </Link>
             <span className="text-xs tracking-[0.2em] text-muted-foreground font-mono">
               {String(projectIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
@@ -152,7 +152,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           <div className="space-y-8">
             <div>
               <span className="text-xs tracking-[0.3em] text-muted-foreground uppercase">
-                Ubicación
+                Location
               </span>
               <p className="mt-2 text-foreground font-light">
                 {project.location}
@@ -160,7 +160,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
             </div>
             <div>
               <span className="text-xs tracking-[0.3em] text-muted-foreground uppercase">
-                Superficie
+                Area
               </span>
               <p className="mt-2 text-foreground font-light">
                 {project.area}
@@ -177,7 +177,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
             <div className="relative aspect-[16/10] w-full overflow-hidden">
               <Image
                 src={image}
-                alt={`${project.title} - Vista ${index + 2}`}
+                alt={`${project.title} - View ${index + 2}`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 90vw"
@@ -197,7 +197,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               className="group relative p-8 md:p-12 border-r border-border hover:bg-secondary/50 transition-colors duration-300"
             >
               <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                Proyecto Anterior
+                Previous Project
               </span>
               <h3 className="mt-4 text-xl md:text-2xl font-extralight text-foreground group-hover:text-muted-foreground transition-colors duration-300">
                 {prevProject.title}
@@ -210,7 +210,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               className="group relative p-8 md:p-12 text-right hover:bg-secondary/50 transition-colors duration-300"
             >
               <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                Siguiente Proyecto
+                Next Project
               </span>
               <h3 className="mt-4 text-xl md:text-2xl font-extralight text-foreground group-hover:text-muted-foreground transition-colors duration-300">
                 {nextProject.title}
