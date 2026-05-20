@@ -144,6 +144,7 @@ export function Scene3D() {
 
   return (
     <section 
+      id="modelo-3d"
       ref={containerRef}
       className="relative h-[120vh] w-full bg-secondary flex items-center justify-center"
     >

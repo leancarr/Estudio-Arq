@@ -96,6 +96,7 @@ export function WhatWeBelieve() {
 
   return (
     <section 
+      id="manifiesto"
       ref={containerRef}
       className="relative bg-background text-foreground py-24 md:py-40 px-6 md:px-12"
     >
