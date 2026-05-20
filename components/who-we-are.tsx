@@ -9,14 +9,14 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 const team = [
   {
-    role: 'Founder & Principal Architect',
+    role: 'Fundador y Arquitecto Principal',
     name: 'Guido Chiarito',
-    bio: 'Directs the studio\'s architectural vision and spatial strategy, focused on honest geometries and natural light integration.'
+    bio: 'Dirige la visión arquitectónica y la estrategia espacial del estudio, centrándose en geometrías honestas y la integración de la luz natural.'
   },
   {
-    role: 'Partner & Lead Designer',
+    role: 'Socia y Diseñadora Principal',
     name: 'Isabella Vanni',
-    bio: 'Oversees interior development and material research, ensuring every texture and details align with structural truth.'
+    bio: 'Supervisa el desarrollo de interiores y la investigación de materiales, asegurando que cada textura y detalle se alineen con la verdad estructural.'
   }
 ]
 
@@ -60,13 +60,13 @@ export function WhoWeAre() {
         {/* Left Column - Intro */}
         <div className="lg:col-span-4 lg:col-start-1 team-header">
           <span className="text-xs tracking-[0.3em] text-muted-foreground uppercase block mb-3">
-            Studio
+            Estudio
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-foreground">
-            Who we are.
+            Quiénes somos.
           </h2>
           <p className="text-muted-foreground text-sm font-light leading-relaxed mt-6">
-            We are a multicultural team of designers, engineers, and architects. We believe in cross-disciplinary cooperation to build structures that survive passing styles.
+            Somos un equipo multicultural de diseñadores, ingenieros y arquitectos. Creemos en la cooperación interdisciplinaria para construir estructuras que sobrevivan a las modas pasajeras.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export function WhoWeAre() {
                 </div>
                 
                 <span className="text-xs tracking-[0.25em] text-muted-foreground/60 uppercase font-mono group-hover:text-foreground transition-colors duration-500">
-                  Image Pending
+                  Imagen Pendiente
                 </span>
                 
                 {/* Clean hover accent border */}

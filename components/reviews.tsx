@@ -9,16 +9,16 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 const reviews = [
   {
-    quote: "Partnering with this studio has been an extraordinary journey. Their structural clarity, command of raw materials, and capability to hit tight deadlines elevated our project to a new benchmark.",
+    quote: "Asociarnos con este estudio ha sido un viaje extraordinario. Su claridad estructural, dominio de los materiales en bruto y capacidad para cumplir con plazos ajustados elevaron nuestro proyecto a un nuevo nivel.",
     author: "Craig Applegath",
-    role: "Lead Architect — DIALOG",
-    avatarLabel: "Client Image"
+    role: "Arquitecto Principal — DIALOG",
+    avatarLabel: "Imagen de Cliente"
   },
   {
-    quote: "They don't just supply architectural designs; they sculpt space. The way they integrate natural lighting into raw concrete structures redefined our vision of commercial spaces.",
+    quote: "No solo entregan diseños arquitectónicos; esculpen el espacio. La forma en que integran la luz natural en estructuras de hormigón crudo redefinió nuestra visión de los espacios comerciales.",
     author: "Martin Baron",
-    role: "Partner — BNA Development",
-    avatarLabel: "Client Image"
+    role: "Socio — BNA Development",
+    avatarLabel: "Imagen de Cliente"
   }
 ]
 
@@ -62,13 +62,13 @@ export function Reviews() {
         {/* Left Column - Title */}
         <div className="lg:col-span-4 lg:col-start-1 reviews-header">
           <span className="text-xs tracking-[0.3em] text-muted-foreground uppercase block mb-3">
-            Opinions
+            Opiniones
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-foreground">
-            What they think.
+            Lo que piensan.
           </h2>
           <p className="text-muted-foreground text-sm font-light leading-relaxed mt-6">
-            Our relationships with clients are built on shared values of architectural precision and programmatic dialogue.
+            Nuestras relaciones con los clientes se basan en valores compartidos de precisión arquitectónica y diálogo programático.
           </p>
         </div>
 

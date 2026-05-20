@@ -78,7 +78,7 @@ export function Intro({ onComplete }: { onComplete?: () => void }) {
   }, { scope: containerRef, dependencies: [isReady] })
 
   const lambdaLetters = 'LAMBDA'.split('')
-  const taglineWords = ['ARCHITECTURE', '·', 'DESIGN', '·', 'SPACE']
+  const taglineWords = ['ARQUITECTURA', '·', 'DISEÑO', '·', 'ESPACIO']
 
   return (
     <div

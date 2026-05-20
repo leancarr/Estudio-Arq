@@ -42,13 +42,13 @@ export function Navbar({ className }: NavbarProps) {
 
           {/* Navigation Links */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-10">
-            <NavLink href="#modelo-3d" isScrolled={isScrolled}>Model</NavLink>
-            <NavLink href="#manifiesto" isScrolled={isScrolled}>Manifesto</NavLink>
-            <NavLink href="#que-hacemos" isScrolled={isScrolled}>Services</NavLink>
-            <NavLink href="#obras" isScrolled={isScrolled}>Works</NavLink>
-            <NavLink href="#quienes-somos" isScrolled={isScrolled}>Studio</NavLink>
-            <NavLink href="#opiniones" isScrolled={isScrolled}>Reviews</NavLink>
-            <NavLink href="#contacto" isScrolled={isScrolled}>Contact</NavLink>
+            <NavLink href="#modelo-3d" isScrolled={isScrolled}>Modelo</NavLink>
+            <NavLink href="#manifiesto" isScrolled={isScrolled}>Manifiesto</NavLink>
+            <NavLink href="#que-hacemos" isScrolled={isScrolled}>Servicios</NavLink>
+            <NavLink href="#obras" isScrolled={isScrolled}>Obras</NavLink>
+            <NavLink href="#quienes-somos" isScrolled={isScrolled}>Estudio</NavLink>
+            <NavLink href="#opiniones" isScrolled={isScrolled}>Opiniones</NavLink>
+            <NavLink href="#contacto" isScrolled={isScrolled}>Contacto</NavLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -59,7 +59,7 @@ export function Navbar({ className }: NavbarProps) {
             <span className={`text-xs tracking-[0.2em] uppercase transition-colors ${
               isMenuOpen ? 'text-foreground' : (isScrolled ? 'text-foreground/50' : 'text-primary-foreground/60')
             }`}>
-              {isMenuOpen ? 'Close' : 'Menu'}
+              {isMenuOpen ? 'Cerrar' : 'Menú'}
             </span>
           </button>
         </div>
@@ -73,13 +73,13 @@ export function Navbar({ className }: NavbarProps) {
           isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <MobileNavLink href="#modelo-3d" onClick={() => setIsMenuOpen(false)}>Model</MobileNavLink>
-        <MobileNavLink href="#manifiesto" onClick={() => setIsMenuOpen(false)}>Manifesto</MobileNavLink>
-        <MobileNavLink href="#que-hacemos" onClick={() => setIsMenuOpen(false)}>Services</MobileNavLink>
-        <MobileNavLink href="#obras" onClick={() => setIsMenuOpen(false)}>Works</MobileNavLink>
-        <MobileNavLink href="#quienes-somos" onClick={() => setIsMenuOpen(false)}>Studio</MobileNavLink>
-        <MobileNavLink href="#opiniones" onClick={() => setIsMenuOpen(false)}>Reviews</MobileNavLink>
-        <MobileNavLink href="#contacto" onClick={() => setIsMenuOpen(false)}>Contact</MobileNavLink>
+        <MobileNavLink href="#modelo-3d" onClick={() => setIsMenuOpen(false)}>Modelo</MobileNavLink>
+        <MobileNavLink href="#manifiesto" onClick={() => setIsMenuOpen(false)}>Manifiesto</MobileNavLink>
+        <MobileNavLink href="#que-hacemos" onClick={() => setIsMenuOpen(false)}>Servicios</MobileNavLink>
+        <MobileNavLink href="#obras" onClick={() => setIsMenuOpen(false)}>Obras</MobileNavLink>
+        <MobileNavLink href="#quienes-somos" onClick={() => setIsMenuOpen(false)}>Estudio</MobileNavLink>
+        <MobileNavLink href="#opiniones" onClick={() => setIsMenuOpen(false)}>Opiniones</MobileNavLink>
+        <MobileNavLink href="#contacto" onClick={() => setIsMenuOpen(false)}>Contacto</MobileNavLink>
       </div>
     </>
   )

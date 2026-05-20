@@ -65,12 +65,12 @@ export function ContactForm() {
         <div className="lg:col-span-5 lg:col-start-1">
           <div className="lg:sticky lg:top-32 contact-fade">
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-8">
-              Let's begin a<br />new dialogue.
+              Iniciemos un<br />nuevo diálogo.
             </h2>
             <p className="text-cement text-sm md:text-base leading-relaxed max-w-md">
-              Every great architectural work begins with a conversation. 
-              Share your vision with us and our team will contact you to explore 
-              the possibilities of your next project.
+              Cada gran obra arquitectónica comienza con una conversación. 
+              Compártenos tu visión y nuestro equipo te contactará para explorar 
+              las posibilidades de tu próximo proyecto.
             </p>
           </div>
         </div>
@@ -85,13 +85,13 @@ export function ContactForm() {
                 id="name"
                 required
                 className="peer w-full bg-transparent border-b border-cement/30 py-4 text-foreground text-lg md:text-xl font-light focus:outline-none focus:border-foreground transition-colors placeholder-transparent"
-                placeholder="Your Name"
+                placeholder="Tu Nombre"
               />
               <label 
                 htmlFor="name" 
                 className="absolute left-0 top-4 text-cement/60 text-lg md:text-xl font-light transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-foreground peer-focus:tracking-widest peer-valid:-top-6 peer-valid:text-xs peer-valid:text-foreground peer-valid:tracking-widest cursor-text"
               >
-                Your Name
+                Tu Nombre
               </label>
             </div>
 
@@ -101,13 +101,13 @@ export function ContactForm() {
                 id="email"
                 required
                 className="peer w-full bg-transparent border-b border-cement/30 py-4 text-foreground text-lg md:text-xl font-light focus:outline-none focus:border-foreground transition-colors placeholder-transparent"
-                placeholder="Email Address"
+                placeholder="Correo Electrónico"
               />
               <label 
                 htmlFor="email" 
                 className="absolute left-0 top-4 text-cement/60 text-lg md:text-xl font-light transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-foreground peer-focus:tracking-widest peer-valid:-top-6 peer-valid:text-xs peer-valid:text-foreground peer-valid:tracking-widest cursor-text"
               >
-                Email Address
+                Correo Electrónico
               </label>
             </div>
 
@@ -117,13 +117,13 @@ export function ContactForm() {
                 required
                 rows={4}
                 className="peer w-full bg-transparent border-b border-cement/30 py-4 text-foreground text-lg md:text-xl font-light focus:outline-none focus:border-foreground transition-colors placeholder-transparent resize-none"
-                placeholder="About the Project"
+                placeholder="Sobre el Proyecto"
               />
               <label 
                 htmlFor="message" 
                 className="absolute left-0 top-4 text-cement/60 text-lg md:text-xl font-light transition-all peer-focus:-top-6 peer-focus:text-xs peer-focus:text-foreground peer-focus:tracking-widest peer-valid:-top-6 peer-valid:text-xs peer-valid:text-foreground peer-valid:tracking-widest cursor-text"
               >
-                About the Project
+                Sobre el Proyecto
               </label>
             </div>
 
@@ -133,13 +133,13 @@ export function ContactForm() {
                 disabled={isSubmitting}
                 className="group relative inline-flex items-center gap-4 text-sm tracking-[0.2em] uppercase text-foreground hover:text-cement transition-colors disabled:opacity-50"
               >
-                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                <span>{isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}</span>
                 <span className="w-8 h-px bg-current transition-all group-hover:w-16" />
               </button>
 
               {isSuccess && (
                 <span className="text-xs text-green-600 tracking-widest uppercase animate-pulse">
-                  Message Sent
+                  Mensaje Enviado
                 </span>
               )}
             </div>

@@ -10,18 +10,18 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 const services = [
   {
     number: '01',
-    title: 'Architectural Design',
-    description: 'We craft structures that respond directly to their context. From initial conceptualization to final details, we prioritize volumetric honesty, scale, and spatial flow.'
+    title: 'Diseño Arquitectónico',
+    description: 'Creamos estructuras que responden directamente a su contexto. Desde la conceptualización inicial hasta los detalles finales, priorizamos la honestidad volumétrica, la escala y el flujo espacial.'
   },
   {
     number: '02',
-    title: 'Interior Architecture',
-    description: 'We curate tactile, authentic environments. Selecting pure materials—raw concrete, industrial steel, glass, and wood—we compose space around the sculpturing effect of light.'
+    title: 'Arquitectura Interior',
+    description: 'Comisariamos entornos táctiles y auténticos. Seleccionando materiales puros —hormigón en bruto, acero industrial, vidrio y madera— componemos el espacio en torno al efecto escultórico de la luz.'
   },
   {
     number: '03',
-    title: 'Visual Communication',
-    description: 'Translating concepts into cinematic expressions. We produce diagrams, illustrations, and materials that communicate the soul and structural clarity of each project.'
+    title: 'Comunicación Visual',
+    description: 'Traduciendo conceptos en expresiones cinematográficas. Producimos diagramas, ilustraciones y materiales que comunican el alma y la claridad estructural de cada proyecto.'
   }
 ]
 
@@ -64,13 +64,13 @@ export function WhatWeDo() {
         {/* Header */}
         <div className="do-header mb-16 md:mb-24 max-w-xl">
           <span className="text-xs tracking-[0.3em] text-muted-foreground uppercase block mb-3">
-            Services
+            Servicios
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-foreground">
-            What we do.
+            Lo que hacemos.
           </h2>
           <p className="text-muted-foreground text-sm font-light leading-relaxed mt-6">
-            We operate at the interface of volumetric architecture, interior textures, and visualization, materializing functional spaces that dialogue with their environments.
+            Operamos en la intersección de la arquitectura volumétrica, las texturas interiores y la visualización, materializando espacios funcionales que dialogan con su entorno.
           </p>
         </div>
 
