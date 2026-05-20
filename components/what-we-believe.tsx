@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -40,14 +41,27 @@ export function WhatWeBelieve() {
 
       // Animate title first
       tl.fromTo(
-        '.believe-title',
+        '.believe-title > span, .believe-title > h2',
         { y: 40, opacity: 0 },
         {
           y: 0,
           opacity: 1,
           duration: 1,
           ease: 'power3.out',
+          stagger: 0.2
         }
+      )
+      .fromTo(
+        '.believe-image',
+        { y: 40, opacity: 0, scale: 0.95 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: 'power3.out',
+        },
+        "-=0.6"
       )
       // Then animate lines
       .fromTo(
@@ -96,6 +110,16 @@ export function WhatWeBelieve() {
             <h2 className="font-sans text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-foreground">
               En lo que<br />creemos.
             </h2>
+            
+            <div className="hidden lg:block mt-12 believe-image relative aspect-[4/5] w-full max-w-[280px] overflow-hidden group">
+              <Image 
+                src="/believe-img.jpg" 
+                alt="Architecture details" 
+                fill 
+                className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+              />
+              <div className="absolute inset-0 bg-background/10 group-hover:bg-transparent transition-colors duration-700" />
+            </div>
           </div>
         </div>
 

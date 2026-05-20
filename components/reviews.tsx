@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -10,15 +11,15 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 const reviews = [
   {
     quote: "Asociarnos con este estudio ha sido un viaje extraordinario. Su claridad estructural, dominio de los materiales en bruto y capacidad para cumplir con plazos ajustados elevaron nuestro proyecto a un nuevo nivel.",
-    author: "Craig Applegath",
+    author: "Nombre*",
     role: "Arquitecto Principal — DIALOG",
-    avatarLabel: "Imagen de Cliente"
+    image: "/client-1.jpg"
   },
   {
     quote: "No solo entregan diseños arquitectónicos; esculpen el espacio. La forma en que integran la luz natural en estructuras de hormigón crudo redefinió nuestra visión de los espacios comerciales.",
-    author: "Martin Baron",
+    author: "Nombre*",
     role: "Socio — BNA Development",
-    avatarLabel: "Imagen de Cliente"
+    image: "/client-2.jpg"
   }
 ]
 
@@ -95,17 +96,14 @@ export function Reviews() {
                 </div>
               </div>
               
-              {/* Square Portrait Placeholder for Client Image */}
-              <div className="w-20 h-20 md:w-24 md:h-24 bg-secondary border border-border/50 shrink-0 flex items-center justify-center relative overflow-hidden group">
-                <span className="text-[9px] tracking-wider text-muted-foreground/60 font-mono text-center px-2 select-none group-hover:text-foreground transition-colors duration-300">
-                  {item.avatarLabel}
-                </span>
-                
-                {/* Minimal crosshair accent */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-[0.05]">
-                  <div className="w-6 h-px bg-foreground" />
-                  <div className="h-6 w-px bg-foreground absolute" />
-                </div>
+              {/* Client Image */}
+              <div className="w-20 h-20 md:w-24 md:h-24 bg-secondary border border-border/50 shrink-0 relative overflow-hidden group">
+                <Image 
+                  src={item.image} 
+                  alt={item.author} 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale" 
+                />
               </div>
             </div>
           ))}

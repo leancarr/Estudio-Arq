@@ -52,7 +52,7 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
         <mesh position={[0, 0, 0]} castShadow receiveShadow>
           <boxGeometry args={[1.5, 2.5, 1]} />
           <meshStandardMaterial 
-            color="#f5f5f5"
+            color="#2a2a2a"
             roughness={0.95}
             metalness={0}
           />
@@ -62,7 +62,7 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
         <mesh position={[0.9, -0.3, 0.3]} castShadow receiveShadow>
           <boxGeometry args={[0.8, 1.8, 0.8]} />
           <meshStandardMaterial 
-            color="#ececec"
+            color="#222222"
             roughness={0.92}
             metalness={0}
           />
@@ -72,7 +72,7 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
         <mesh position={[-0.2, 0.6, 0.51]} castShadow receiveShadow>
           <boxGeometry args={[0.4, 0.6, 0.1]} />
           <meshStandardMaterial 
-            color="#e0e0e0"
+            color="#1a1a1a"
             roughness={0.9}
             metalness={0}
           />
@@ -82,7 +82,7 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
         <mesh position={[0.3, -1.5, 0]} receiveShadow>
           <boxGeometry args={[3, 0.15, 2]} />
           <meshStandardMaterial 
-            color="#fafafa"
+            color="#333333"
             roughness={0.98}
             metalness={0}
           />
@@ -92,7 +92,7 @@ function PlasterModel({ scrollProgress }: { scrollProgress: { value: number } })
         <mesh position={[-0.6, -0.8, 0.6]} castShadow receiveShadow>
           <boxGeometry args={[0.3, 0.8, 0.3]} />
           <meshStandardMaterial 
-            color="#f0f0f0"
+            color="#3a3a3a"
             roughness={0.93}
             metalness={0}
           />
@@ -150,13 +150,13 @@ export function Scene3D() {
       {/* Text overlay */}
       <div className="absolute z-10 max-w-[1800px] w-full px-6 md:px-12 pointer-events-none">
         <div className="max-w-md">
-          <span className="block text-xs tracking-[0.3em] text-muted-foreground uppercase mb-4">
+          <span className="block text-xs tracking-[0.3em] text-black md:text-muted-foreground uppercase mb-4">
             Proceso
           </span>
-          <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-foreground leading-tight text-balance">
+          <h2 className="text-3xl md:text-4xl font-extralight tracking-tight text-black md:text-foreground leading-tight text-balance">
             Del concepto a la materia
           </h2>
-          <p className="mt-4 text-muted-foreground text-base md:text-lg font-light leading-relaxed">
+          <p className="mt-4 text-black/90 md:text-muted-foreground text-base md:text-lg font-light leading-relaxed">
             Cada proyecto nace como una maqueta de yeso, donde probamos la luz, 
             las proporciones y el vacío antes de dar vida al hormigón. A lo largo 
             de los años hemos dejado nuestra huella en barrios emblemáticos de 

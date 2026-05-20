@@ -1,66 +1,76 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { ProjectCarousel } from '@/components/project-carousel'
 
 const projects = [
   {
     id: 'casa-monolito',
-    title: 'Monolith House',
+    title: 'Casa Monolito',
     year: '2024',
     location: 'Buenos Aires, Argentina',
     area: '450 m²',
-    description: 'A residence that emerges from the landscape like a concrete sculpture. The purity of its lines dialogues with the surrounding nature, creating spaces of contemplation where light is the protagonist.',
+    description: 'Una residencia que emerge del paisaje como una escultura de hormigón. La pureza de sus líneas dialoga con la naturaleza circundante, creando espacios de contemplación donde la luz es protagonista.',
     images: [
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90',
-      'https://images.unsplash.com/photo-160073472592-401b489a3cdc?w=1920&q=90',
+      '/proj1-1.jpg',
+      '/proj1-2.jpg',
+      '/proj1-3.jpg',
+      '/proj1-4.jpg'
     ],
   },
   {
     id: 'refugio-andino',
-    title: 'Andean Refuge',
+    title: 'Refugio Andino',
     year: '2023',
     location: 'Bariloche, Argentina',
     area: '280 m²',
-    description: 'Nestled in the mountain range, this refuge reinterprets traditional alpine architecture with a contemporary language. Large windows frame the mountains as living paintings.',
+    description: 'Enclavado en la cordillera, este refugio reinterpreta la arquitectura alpina tradicional con un lenguaje contemporáneo. Grandes ventanales enmarcan las montañas como cuadros vivos.',
     images: [
       'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=90',
+      '/proj2-1.jpg',
       'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=90',
     ],
   },
   {
     id: 'torre-silencio',
-    title: 'Tower of Silence',
+    title: 'Torre del Silencio',
     year: '2023',
     location: 'Montevideo, Uruguay',
     area: '1200 m²',
-    description: 'An office building that challenges the conventional typology. Its exposed concrete facades filter light, creating changing atmospheres throughout the day.',
+    description: 'Un edificio de oficinas que desafía la tipología convencional. Sus fachadas de hormigón visto filtran la luz, creando atmósferas cambiantes a lo largo del día.',
     images: [
       'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=90',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90',
+      'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1920&q=90',
     ],
   },
   {
     id: 'galeria-luz',
-    title: 'Gallery of Light',
+    title: 'Galería de Luz',
     year: '2022',
     location: 'Santiago, Chile',
     area: '800 m²',
-    description: 'An exhibition space where architecture is subordinated to art. White walls and double-height ceilings create the perfect canvas for any artistic manifestation.',
+    description: 'Un espacio expositivo donde la arquitectura se subordina al arte. Paredes blancas y techos de doble altura crean el lienzo perfecto para cualquier manifestación artística.',
     images: [
       'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1920&q=90',
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=90',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=90',
     ],
   },
   {
     id: 'casa-horizonte',
-    title: 'Horizon House',
+    title: 'Casa Horizonte',
     year: '2022',
     location: 'Punta del Este, Uruguay',
     area: '520 m²',
-    description: 'A dwelling that extends horizontally towards the ocean. The architecture dissolves into the landscape, blurring the boundaries between interior and exterior.',
+    description: 'Una vivienda que se extiende horizontalmente hacia el océano. La arquitectura se disuelve en el paisaje, difuminando los límites entre interior y exterior.',
     images: [
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=90',
       'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=90',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=90',
+      'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1920&q=90',
     ],
   },
 ]
@@ -76,7 +86,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const project = projects.find((p) => p.id === id)
   
   if (!project) {
-    return { title: 'Project not found' }
+    return { title: 'Proyecto no encontrado' }
   }
 
   return {
@@ -108,7 +118,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               className="text-xs tracking-[0.2em] text-muted-foreground hover:text-foreground uppercase transition-colors duration-300 flex items-center gap-3"
             >
               <span className="w-8 h-px bg-current" />
-              Back
+              Volver
             </Link>
             <span className="text-xs tracking-[0.2em] text-muted-foreground font-mono">
               {String(projectIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
@@ -152,7 +162,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
           <div className="space-y-8">
             <div>
               <span className="text-xs tracking-[0.3em] text-muted-foreground uppercase">
-                Location
+                Ubicación
               </span>
               <p className="mt-2 text-foreground font-light">
                 {project.location}
@@ -160,7 +170,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
             </div>
             <div>
               <span className="text-xs tracking-[0.3em] text-muted-foreground uppercase">
-                Area
+                Área
               </span>
               <p className="mt-2 text-foreground font-light">
                 {project.area}
@@ -170,22 +180,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
         </div>
       </section>
 
-      {/* Additional Images */}
-      {project.images.slice(1).map((image, index) => (
-        <section key={index} className="relative w-full px-6 md:px-12 mb-12">
-          <div className="max-w-[1800px] mx-auto">
-            <div className="relative aspect-[16/10] w-full overflow-hidden">
-              <Image
-                src={image}
-                alt={`${project.title} - View ${index + 2}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 90vw"
-              />
-            </div>
-          </div>
-        </section>
-      ))}
+      {/* Carrusel de imágenes */}
+      <ProjectCarousel images={project.images.slice(1)} />
 
       {/* Navigation to other projects */}
       <section className="border-t border-border">
@@ -197,7 +193,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               className="group relative p-8 md:p-12 border-r border-border hover:bg-secondary/50 transition-colors duration-300"
             >
               <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                Previous Project
+                Proyecto Anterior
               </span>
               <h3 className="mt-4 text-xl md:text-2xl font-extralight text-foreground group-hover:text-muted-foreground transition-colors duration-300">
                 {prevProject.title}
@@ -210,7 +206,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               className="group relative p-8 md:p-12 text-right hover:bg-secondary/50 transition-colors duration-300"
             >
               <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                Next Project
+                Siguiente Proyecto
               </span>
               <h3 className="mt-4 text-xl md:text-2xl font-extralight text-foreground group-hover:text-muted-foreground transition-colors duration-300">
                 {nextProject.title}

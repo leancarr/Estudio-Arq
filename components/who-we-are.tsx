@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -10,13 +11,15 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 const team = [
   {
     role: 'Fundador y Arquitecto Principal',
-    name: 'Guido Chiarito',
-    bio: 'Dirige la visión arquitectónica y la estrategia espacial del estudio, centrándose en geometrías honestas y la integración de la luz natural.'
+    name: 'Nombre*',
+    bio: 'Dirige la visión arquitectónica y la estrategia espacial del estudio, centrándose en geometrías honestas y la integración de la luz natural.',
+    image: '/team-1.jpg'
   },
   {
     role: 'Socia y Diseñadora Principal',
-    name: 'Isabella Vanni',
-    bio: 'Supervisa el desarrollo de interiores y la investigación de materiales, asegurando que cada textura y detalle se alineen con la verdad estructural.'
+    name: 'Nombre*',
+    bio: 'Supervisa el desarrollo de interiores y la investigación de materiales, asegurando que cada textura y detalle se alineen con la verdad estructural.',
+    image: '/team-2.jpg'
   }
 ]
 
@@ -74,20 +77,17 @@ export function WhoWeAre() {
         <div className="lg:col-span-8 lg:col-start-5 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
           {team.map((member, idx) => (
             <div key={idx} className="team-member space-y-6">
-              {/* Profile Photo Placeholder Frame */}
+              {/* Profile Photo Frame */}
               <div className="relative aspect-[3/4] w-full bg-secondary border border-border/40 flex items-center justify-center group overflow-hidden">
-                {/* Thin technical crosshair lines in background to reinforce the design/architecture style */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-[0.08]">
-                  <div className="w-12 h-px bg-foreground" />
-                  <div className="h-12 w-px bg-foreground absolute" />
-                </div>
-                
-                <span className="text-xs tracking-[0.25em] text-muted-foreground/60 uppercase font-mono group-hover:text-foreground transition-colors duration-500">
-                  Imagen Pendiente
-                </span>
+                <Image 
+                  src={member.image} 
+                  alt={member.name} 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                />
                 
                 {/* Clean hover accent border */}
-                <div className="absolute inset-4 border border-foreground/0 group-hover:border-foreground/5 transition-all duration-700" />
+                <div className="absolute inset-4 border border-white/0 group-hover:border-white/20 transition-all duration-700 pointer-events-none" />
               </div>
               
               {/* Leadership details */}

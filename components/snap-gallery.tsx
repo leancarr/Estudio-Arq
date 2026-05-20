@@ -12,35 +12,35 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 const projects = [
   {
     id: 'casa-monolito',
-    title: 'Monolith House',
+    title: 'Casa Monolito',
     year: '2024',
     location: 'Buenos Aires',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=90',
   },
   {
     id: 'refugio-andino',
-    title: 'Andean Refuge',
+    title: 'Refugio Andino',
     year: '2023',
     location: 'Bariloche',
     image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=90',
   },
   {
     id: 'torre-silencio',
-    title: 'Tower of Silence',
+    title: 'Torre del Silencio',
     year: '2023',
     location: 'Montevideo',
     image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1600&q=90',
   },
   {
     id: 'galeria-luz',
-    title: 'Gallery of Light',
+    title: 'Galería de Luz',
     year: '2022',
     location: 'Santiago',
     image: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1600&q=90',
   },
   {
     id: 'casa-horizonte',
-    title: 'Horizon House',
+    title: 'Casa Horizonte',
     year: '2022',
     location: 'Punta del Este',
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=90',
@@ -145,7 +145,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                   }`}
                 >
                   <span className="text-xs tracking-[0.3em] text-white uppercase px-6 py-3 border border-white/40 backdrop-blur-sm">
-                    View Project
+                    Ver Proyecto
                   </span>
                 </div>
               </div>
@@ -173,11 +173,11 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             {/* Details */}
             <div className={`animate-in flex gap-8 text-sm text-muted-foreground ${index % 2 === 1 ? 'lg:justify-end' : ''}`}>
               <div>
-                <span className="text-xs tracking-[0.2em] uppercase block mb-1">Location</span>
+                <span className="text-xs tracking-[0.2em] uppercase block mb-1">Ubicación</span>
                 <span className="font-light">{project.location}</span>
               </div>
               <div>
-                <span className="text-xs tracking-[0.2em] uppercase block mb-1">Year</span>
+                <span className="text-xs tracking-[0.2em] uppercase block mb-1">Año</span>
                 <span className="font-light">{project.year}</span>
               </div>
             </div>
@@ -227,14 +227,14 @@ export function SnapGallery() {
         <div className="flex items-end justify-between">
           <div>
             <span className="text-xs tracking-[0.3em] text-muted-foreground uppercase block mb-3">
-              Portfolio
+              Portafolio
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight">
-              Selected Works
+              Obras Destacadas
             </h2>
           </div>
           <span className="hidden md:block text-xs tracking-[0.2em] text-muted-foreground font-mono">
-            {String(projects.length).padStart(2, '0')} Projects
+            {String(projects.length).padStart(2, '0')} Proyectos
           </span>
         </div>
         <div className="w-full h-px bg-muted-foreground/20 mt-8" />
